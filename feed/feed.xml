@@ -3,18 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>Austin Willis</title>
   <subtitle>Posts about things I&#39;m tinkering with or thinking about.</subtitle>
-  <link href="https://austinwillis.com/eleventy-base-blog/feed/feed.xml" rel="self" />
-  <link href="https://austinwillis.com/eleventy-base-blog/" />
+  <link href="https://austinwillis.com/feed/feed.xml" rel="self" />
+  <link href="https://austinwillis.com/" />
   <updated>2024-11-16T00:00:00Z</updated>
-  <id>https://austinwillis.com/eleventy-base-blog/</id>
+  <id>https://austinwillis.com/</id>
   <author>
     <name>Austin Willis</name>
   </author>
   <entry>
     <title>What do you do after a layoff?</title>
-    <link href="https://austinwillis.com/eleventy-base-blog/blog/layoffs/" />
+    <link href="https://austinwillis.com/blog/layoffs/" />
     <updated>2024-11-16T00:00:00Z</updated>
-    <id>https://austinwillis.com/eleventy-base-blog/blog/layoffs/</id>
+    <id>https://austinwillis.com/blog/layoffs/</id>
     <content type="html">&lt;h3 id=&quot;1-follow-orders&quot;&gt;1. Follow orders&lt;/h3&gt;
 &lt;p&gt;Basically do nothing. Learn who your new manager is. Say hello nice to meet you. What do I do now. Then just do that. I don&#39;t blame anyone. Rent to pay. Mouths to feed. We all know you can end up on the street.&lt;/p&gt;
 &lt;p&gt;Maybe that&#39;s what I&#39;ll do. Just &#39;rest and vest&#39;-ish, but not rest too much cause maybe working &#39;hard&#39; acutally matters. Doesn&#39;t seem to entirely. I don&#39;t know if I necessarily work hard but I&#39;m proud of my work. Honestly if I put a number of hours on it, I&#39;m a little embarrased. Like pretty low. I&#39;m honestly kind of spoiled most of the time. But I have worked long hours this year. Oncall overnight babysitting a dashboard, trying ranom little tweaks to get something unstuck. That was a while ago and I have slacked off a bit lately. My partner has been upset at me during these times because of working too much. I&#39;ve sacrificed family for work, which feels even worse when you see how little it actually matters. How little your work really means to the people making decicisions that could derail your entire life. I genuinely like to help our customers get stuff done, and have seen positive feedback from customers directly on my work. But what am I really getting out of that? Even though I can find purpose in doing things like this, I don&#39;t really &#39;own&#39; the results. No matter how well they pay me, or how many &#39;kudos&#39; or promotions are handed out, it&#39;s ultimately not &lt;strong&gt;my&lt;/strong&gt; customer but the corporations.&lt;/p&gt;
