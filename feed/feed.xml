@@ -5,11 +5,102 @@
   <subtitle>Posts about things I&#39;m tinkering with or thinking about.</subtitle>
   <link href="https://austinwillis.com/feed/feed.xml" rel="self" />
   <link href="https://austinwillis.com/" />
-  <updated>2024-11-16T00:00:00Z</updated>
+  <updated>2024-12-01T00:00:00Z</updated>
   <id>https://austinwillis.com/</id>
   <author>
     <name>Austin Willis</name>
   </author>
+  <entry>
+    <title>Textpod</title>
+    <link href="https://austinwillis.com/blog/textpod/" />
+    <updated>2024-12-01T00:00:00Z</updated>
+    <id>https://austinwillis.com/blog/textpod/</id>
+    <content type="html">&lt;h3 id=&quot;oracle&quot;&gt;Oracle&lt;/h3&gt;
+&lt;p&gt;Made a free account for oracle cloud. Provisioned a linux instance.&lt;/p&gt;
+&lt;h3 id=&quot;docker&quot;&gt;Docker&lt;/h3&gt;
+&lt;p&gt;Update package manager&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo yum update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add &lt;code&gt;yum-utils&lt;/code&gt; and docker repo&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo dnf install -y dnf-utils zip unzip
+dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Install Docker&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dnf remove -y runc
+dnf install -y docker-ce --nobest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Gave up getting docker on oracle cloud free machine.&lt;/p&gt;
+&lt;p&gt;Trying to just install textpod with cargo instead.&lt;/p&gt;
+&lt;p&gt;Install Cargo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl https://sh.rustup.rs -sSf | sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Install textpod:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cargo install textpod
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;The free machine is just too slow. Got a E3.Flex instead.&lt;/p&gt;
+&lt;p&gt;Made sure routing was working for apache: https://docs.oracle.com/en/learn/lab_compute_instance/index.html#troubleshooting&lt;/p&gt;
+&lt;p&gt;Installing docker this time. :pray:
+https://oracle-base.com/articles/linux/docker-install-docker-on-oracle-linux-ol8&lt;/p&gt;
+&lt;p&gt;Ok working, used this nginx reverse proxy thing to route a subdomain: https://github.com/nginx-proxy/nginx-proxy?tab=readme-ov-file
+Not sure if I did that right but it works for http://notes.austinwillis.com to go to the textpod container.&lt;/p&gt;
+&lt;p&gt;Ooooh, nice: http://worknotes.austinwillis.com&lt;/p&gt;
+&lt;p&gt;Started another container of textpod:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo docker run --detach --rm --name textpod2 -d -v $(pwd)/notes:/app -p 8081:3000 --env VIRTUAL_HOST=worknotes.austinwillis.com freetonik/textpod
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This routes the other subdomain to a differnt notes server with a new file.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>On Sharing</title>
+    <link href="https://austinwillis.com/blog/sharing/" />
+    <updated>2024-11-30T00:00:00Z</updated>
+    <id>https://austinwillis.com/blog/sharing/</id>
+    <content type="html">&lt;p&gt;[Commentary on]: &lt;a href=&quot;https://blog.elenarossini.com/a-new-way-to-describe-the-fediverse-and-its-opposition-to-big-tech/?ref=selfh.st&quot;&gt;A new way to describe the Fediverse and its opposition to Big Tech&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;&lt;/h2&gt;
+&lt;p&gt;Wathcing the Macy&#39;s thanksgiving day parade had me considering the commercialization of holiday giving. I was struck with an interaction I had the other day. We just moved to NYC and all of our belongings are currently stored in a NJ warehouse. On the day before Thanksgiving I took a trip to the warehouse to pick up a few things which our moving company charges a small fee to do. I was happy to pay it, but when asking the mover how I should pay, he simply said &amp;quot;Happy holidays&amp;quot; and gestured to not worry about it.&lt;/p&gt;
+&lt;p&gt;As we have financialized almost all aspects of society in the last ~century~ or so, we have also lost something else that used to be paramount to our social sphere. We now completely seperate our financial and social relationships. This is great for many aspects of society. Credit access is no longer contingent on social standing or class of birth. It (~somewhat~) effectively removes racial discrimination in economic transactions. But we also lose an important connection to our community. We no longer have opportunities to show kindness to our neighbors without expectation.&lt;/p&gt;
+&lt;p&gt;Gift giving in American society has become sullied pretty throughly with a sense of competition. Giving a gift ascribes a level of indebtedness to the recipient and not reciprocating with a gift of equal value is an affront.&lt;/p&gt;
+&lt;p&gt;Not that long ago, the indebtedness to our neghbors was a ~real phenomenom~. We bought from the grocer on credit. The butcher. The banker. Each transation you made was likely putting you in debt to the people surrounding you. This became a problem when you couldn&#39;t pay back since your social sphere collapsed as a result of financial challenges. You may have also performed barter, even if not necessary it may be convenient. The butcher may pay the grocer with product rather than cash because they are likely awaiting payment from their customers. This kind of arangement provides a convenient avenue for community building. &amp;quot;Happy holidays&amp;quot;. Today we call this &amp;quot;mutual aid&amp;quot; and have industrialized the concept of giving money away. Without a consistent mechanism of equal value trade, we instead create an expectation of it where it is meant to be an ~inequal~ trade.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;big-tech-big-food&quot;&gt;Big Tech &amp;lt;-&amp;gt; Big Food&lt;/h2&gt;
+&lt;p&gt;I do really appreciate this analogy of Big Tech &amp;lt;-&amp;gt; Big Food. We have centralized and financialized our social interactions to an absolute extreme. In the last few years, I have really made an effort to improve my cooking skills. I think I&#39;ve become somewhat good at it. It takes practice. But I&#39;m someone who likes challenges, likes making a system, gernally has the perseverence (or sheer stubbornness) to become determined to do something well. Not everyone is like that, or at least not with all things. This is why we must share. Unforuntately, we have become ~very bad~ at building communities around who is good at what and who we &lt;em&gt;need&lt;/em&gt; to share with. It&#39;s much easier to just get paid for the 1 thing you are good at and buy everything else. Like social engagement. This is the opportunity for the fediverse. Some of us are &lt;em&gt;good&lt;/em&gt; at running websites. We can share that with others and prevent them from &lt;em&gt;needing&lt;/em&gt; to consume nothing but junk &lt;s&gt;food&lt;/s&gt; websites. Just like food, some families lack a cook. This used to be solved primarily by the multi-genreational household, but American consumerism has succesfully destroyed that institution of society.&lt;/p&gt;
+&lt;p&gt;So this is on my TODO list this next year...&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Cook for more people.&lt;/li&gt;
+&lt;li&gt;Provide technology for people.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Maybe that is a narrative that works for people... Somewhere to find meaning. But it has to become something people &lt;em&gt;know they want&lt;/em&gt; and the junk food analogy is a great way to convince them.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Self Hosting</title>
+    <link href="https://austinwillis.com/blog/self-hosting/" />
+    <updated>2024-11-30T00:00:00Z</updated>
+    <id>https://austinwillis.com/blog/self-hosting/</id>
+    <content type="html">&lt;p&gt;This is a collection of tools I am interested in running. I will try and post an update for each one as I get them going.&lt;/p&gt;
+&lt;h3 id=&quot;read-later&quot;&gt;Read Later&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://wallabag.org/&quot;&gt;Wallabag&lt;/a&gt;
+&lt;a href=&quot;https://readeck.org/en/?ref=selfh.st&quot;&gt;ReadDeck&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;feed-reader&quot;&gt;Feed Reader&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.freshrss.org/&quot;&gt;FreshRSS&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;location&quot;&gt;Location&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://owntracks.org/&quot;&gt;OwnTracks&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://noted.lol/install-joplin-server-using-docker-compose/&quot;&gt;Joplin&lt;/a&gt;
+&lt;a href=&quot;https://github.com/freetonik/textpod?ref=selfh.st&quot;&gt;Textpod&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;writing&quot;&gt;Writing&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://writefreely.org/?ref=selfh.st&quot;&gt;WriteFreely&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;search&quot;&gt;Search&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/SecureAI-Tools/SecureAI-Tools/&quot;&gt;SecureAI-Tools&lt;/a&gt;
+&lt;a href=&quot;https://docs.paperless-ngx.com/&quot;&gt;Paperless-ngx&lt;/a&gt;
+&lt;a href=&quot;https://github.com/ItzCrazyKns/Perplexica&quot;&gt;Perplexica&lt;/a&gt;
+&lt;a href=&quot;https://docs.hoarder.app/&quot;&gt;Hoarder&lt;/a&gt;
+&lt;a href=&quot;https://github.com/searxng/searxng&quot;&gt;SearXNG&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://olares.medium.com/building-a-local-perplexity-alternative-with-perplexica-ollama-and-searxng-71602523e256&quot;&gt;Guide&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>What do you do after a layoff?</title>
     <link href="https://austinwillis.com/blog/layoffs/" />
